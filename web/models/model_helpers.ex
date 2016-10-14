@@ -13,11 +13,6 @@ defmodule CodeCorps.ModelHelpers do
 
   def newest_first_filter(query), do: query |> order_by([desc: :inserted_at])
 
-  def limit_filter(query, %{"limit" => count}) do
-    query |> limit(^count)
-  end
-  def limit_filter(query, _), do: query
-
   def number_as_id_filter(query, %{"id" => number}) do
     query |> where([object], object.number == ^number)
   end
@@ -43,11 +38,6 @@ defmodule CodeCorps.ModelHelpers do
     query |> where([object], object.project_id == ^project_id)
   end
   def project_filter(query, _), do: query
-
-  def title_filter(query, %{"query" => title}) do
-    query |> where([object], ilike(object.title, ^"%#{title}%"))
-  end
-  def title_filter(query, _), do: query
 
   # end filters
 
