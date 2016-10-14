@@ -40,12 +40,4 @@ defmodule CodeCorps.ModelHelpers do
   def project_filter(query, _), do: query
 
   # end filters
-
-  # finders
-
-  def slug_finder(query, slug) do
-    query |> CodeCorps.Repo.get_by!(slug: slug |> String.downcase)
-  end
-
-  # end finders
 end

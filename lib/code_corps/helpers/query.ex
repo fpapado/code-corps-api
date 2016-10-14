@@ -29,4 +29,12 @@ defmodule CodeCorps.Helpers.Query do
   def title_filter(query, _), do: query
 
   # end skill queries
+
+  # finders
+
+  def slug_finder(query, slug) do
+    query |> CodeCorps.Repo.get_by(slug: slug |> String.downcase)
+  end
+
+  # end finders
 end
